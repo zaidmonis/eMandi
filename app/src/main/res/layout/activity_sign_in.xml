@@ -24,7 +24,7 @@
             <ImageView
                 android:layout_width="290dp"
                 android:layout_height="wrap_content"
-                android:src="@drawable/logo"
+                android:src="@drawable/ic_menu_manage"
                 android:textAlignment="center" />
 
             <TextView
