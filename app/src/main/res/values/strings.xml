@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">eMandi</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="signup">Sign up</string>
+    <string name="rememberme">Remember me</string>
+    <string name="AadharCard">Aadhaar Number</string>
+    <string name="or"> or </string>
+    <string name="PhoneNumber">Phone Number</string>
+    <string name="login_with_number">Login with Phone_number</string>
+    <string name="submit">Submit</string>
+    <string name="otp">Enter OTP</string>
+
+
 </resources>

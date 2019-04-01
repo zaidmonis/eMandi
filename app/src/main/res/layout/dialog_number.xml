@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_back">
+
+    <EditText
+        android:id="@+id/etotp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_rectangular_white"
+        android:drawablePadding="12dp"
+        android:ems="10"
+        android:layout_marginTop="120sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:hint="@string/otp"
+        android:padding="16dp"
+        android:textColorHint="#ffffff"
+        android:maxLines="1"/>
+    <Button
+        android:id="@+id/btnsubmit2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+
+        android:padding="16dp"
+        android:text="@string/submit"
+
+        android:textSize="18sp"
+        android:layout_marginRight="16dp"
+        android:textColor="#fff"
+        android:background="#6bc94f"
+
+        android:layout_marginLeft="20dp"/>
+
+
+
+</LinearLayout>
