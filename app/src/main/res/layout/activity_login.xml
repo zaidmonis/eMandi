@@ -24,6 +24,7 @@
             android:ems="10"
             android:layout_margin="5dp"
             android:hint="@string/username"
+            android:maxLength="12"
             android:padding="16dp"
             android:maxLines="1"
             android:layout_marginRight="16dp"
@@ -80,10 +81,6 @@
             android:gravity="center"
             android:layout_marginTop="10dp"
             android:hint="@string/signup" />
-
-
-
-
         </LinearLayout>
 
     <TextView

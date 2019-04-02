@@ -1,0 +1,44 @@
+{
+  "project_info": {
+    "project_number": "349678549114",
+    "firebase_url": "https://e-mandi-2a9a1.firebaseio.com",
+    "project_id": "e-mandi-2a9a1",
+    "storage_bucket": "e-mandi-2a9a1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:349678549114:android:ecb21d65e7194228",
+        "android_client_info": {
+          "package_name": "textspeech.thezaxis.emandi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "349678549114-dunvkbnv7tscs9nsjol59s7eb5k0pss8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "textspeech.thezaxis.emandi",
+            "certificate_hash": "5b99eb67035aa78cbeadd7a487809b7534ec8a3d"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOmusZFI7KPMriWZnhLNrXPwh8REL7O2c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "349678549114-q3jap8e1tt0jkt0g3i645lf1i8be9tr6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

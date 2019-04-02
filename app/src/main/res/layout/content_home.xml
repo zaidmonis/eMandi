@@ -12,6 +12,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@id/navigation"
         android:id="@+id/fragment_container">
     </FrameLayout>
 
@@ -22,8 +23,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#00000000"
-        app:itemIconTint="#292525"
-        app:itemTextColor="#000"
+        app:itemIconTint="@drawable/bottom_nav_color"
+        app:itemIconSize="20dp"
+        app:itemTextColor="@drawable/bottom_nav_color"
         android:layout_alignParentBottom="true"
         app:menu="@menu/navigation" />
 

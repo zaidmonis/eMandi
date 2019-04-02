@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/main_back">
+    android:orientation="vertical" android:layout_width="300dp"
+    android:layout_height="wrap_content">
 
     <EditText
         android:id="@+id/etpassword"
@@ -10,9 +9,10 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Password"
-        android:textColorHint="#fff"
-        android:layout_marginTop="160dp"
-        android:layout_marginLeft="20dp"
+        android:inputType="textPassword"
+        android:layout_margin="10dp"
+        android:textColorHint="#000"
+        android:backgroundTint="#F7F6F6"
         android:background="@drawable/border_rectangular_white"
         android:padding="16dp"
         android:maxLines="1"
@@ -22,28 +22,15 @@
         android:id="@+id/etconfirmpassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="textPassword"
         android:ems="10"
+        android:layout_margin="10dp"
         android:hint="Confirm Password"
-        android:textColorHint="#fff"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginRight="16dp"
+        android:textColorHint="#000"
+        android:backgroundTint="#F7F6F6"
         android:background="@drawable/border_rectangular_white"
         android:padding="16dp"
         android:maxLines="1"
         />
-    <Button
-        android:id="@+id/btnsubmit1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-
-        android:padding="16dp"
-        android:text="@string/submit"
-        android:textColor="#fff"
-        android:background="#6bc94f"
-        android:textSize="18sp"
-        android:layout_marginRight="16dp"
-        android:layout_marginLeft="20dp"/>
 
 </LinearLayout>
