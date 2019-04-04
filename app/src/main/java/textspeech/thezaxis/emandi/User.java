@@ -1,14 +1,21 @@
 package textspeech.thezaxis.emandi;
 
 public class User {
-    private String userName, key, name, Address, phone;
+    private String userName, key, id;
 
     public User(String userName, String key) {
         this.userName = userName;
         this.key = key;
     }
 
+
     public User() {
+    }
+
+    public User(String userName, String key, String id) {
+        this.userName = userName;
+        this.key = key;
+        this.id = id;
     }
 
     public String getUserName() {
@@ -27,27 +34,11 @@ public class User {
         this.key = key;
     }
 
-    public String getName() {
-        return name;
+    public String getId() {
+        return id;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getAddress() {
-        return Address;
-    }
-
-    public void setAddress(String address) {
-        Address = address;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setId(String name) {
+        this.id = name;
     }
 }

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".RegistrationActivity"
+    android:background="@drawable/main_back">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <EditText
+            android:id="@+id/editName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_rectangular_white"
+            android:ems="10"
+            android:hint="Enter Name"
+            android:inputType="textPersonName"
+            android:padding="16dp"
+            android:layout_margin="5dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            android:textColorHint="#ffffff" >
+        </EditText>
+        <EditText
+            android:id="@+id/editPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="12dp"
+            android:layout_margin="5dp"
+            android:layout_marginTop="12dp"
+            android:padding="16dp"
+            android:background="@drawable/border_rectangular_white"
+            android:ems="10"
+            android:hint="Enter Phone No."
+            android:inputType="phone"
+            android:maxLines="1"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            android:textColorHint="#fff" />
+        <EditText
+            android:id="@+id/editEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="12dp"
+            android:layout_margin="5dp"
+            android:layout_marginTop="12dp"
+            android:padding="16dp"
+            android:background="@drawable/border_rectangular_white"
+            android:ems="10"
+            android:hint="Enter Email (Optional)"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            android:textColorHint="#fff" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="I'm a: "/>
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioGroup"
+            android:orientation="horizontal">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:text="Trader"
+                android:id="@+id/traderRadioButton"
+                android:layout_height="wrap_content"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/farmerRadioButton"
+                android:layout_marginLeft="5dp"
+                android:text="Farmer"/>
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:background="#6bc94f"
+            android:padding="16dp"
+            android:text="Register"
+            android:textColor="#fff"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+</RelativeLayout>

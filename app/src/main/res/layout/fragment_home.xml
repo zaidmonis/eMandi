@@ -22,16 +22,18 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:id="@+id/sample_button"/>
-        <GridView
+        <!--<GridView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/mandi_grid_view"
-            android:numColumns="2"></GridView>
+            android:numColumns="2"></GridView>-->
 
 
         <ListView
-            android:id="@+id/list"
+            android:id="@+id/mandi_grid_view"
             android:layout_width="match_parent"
+            android:background="@drawable/main_back"
+            android:divider="@null"
             android:layout_height="match_parent">
         </ListView>
     </RelativeLayout>

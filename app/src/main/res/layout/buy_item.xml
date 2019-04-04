@@ -25,16 +25,16 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="commodity"
-                android:id="@+id/commodity_tv"
+                android:text="Crop"
+                android:id="@+id/crop_name_tv"
                 android:textSize="20sp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/variety_tv"
+                android:id="@+id/area_tv"
                 android:textSize="15sp"
-                android:layout_below="@id/commodity_tv"
-                android:text="Variety"/>
+                android:layout_below="@id/area_tv"
+                android:text="Area"/>
         </LinearLayout>
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -46,13 +46,13 @@
                 android:layout_height="wrap_content"
                 android:text="₹6552"
                 android:layout_marginLeft="20dp"
-                android:id="@+id/modal_price_tv"
+                android:id="@+id/rate_tv"
                 android:textSize="20sp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBaseline="@id/modal_price_tv"
-                android:layout_toRightOf="@id/modal_price_tv"
+                android:layout_alignBaseline="@id/rate_tv"
+                android:layout_toRightOf="@id/rate_tv"
                 android:id="@+id/modal_price_support"
                 android:text=" / Quintal"/>
         </RelativeLayout>
@@ -61,20 +61,20 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:gravity="bottom"
-            android:layout_toRightOf="@id/min_max_price"
+            android:layout_toRightOf="@id/quantity_tv"
             android:layout_marginLeft="40dp"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true">
-            <ImageView
+            <!--<ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
                 android:tint="#555555"
-                android:src="@drawable/location_icon" />
+                android:src="@drawable/location_icon" />-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/district_tv"
-                android:text="market, district"
+                android:id="@+id/price_tv"
+                android:text="total price"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
@@ -86,7 +86,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:id="@+id/min_max_price"
+            android:id="@+id/quantity_tv"
+            android:text="120"
             android:layout_below="@id/linear"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true" />

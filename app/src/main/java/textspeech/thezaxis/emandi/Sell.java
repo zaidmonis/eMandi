@@ -1,8 +1,8 @@
 package textspeech.thezaxis.emandi;
 
 public class Sell {
-    private String name, details;
-    double rate, area, quantity, price;
+    private String name, details, id;
+    private double rate, area, quantity, price;
 
     public Sell(String name, String details, double rate, double area, double quantity, double price) {
         this.name = name;
@@ -14,6 +14,16 @@ public class Sell {
     }
 
     public Sell() {
+    }
+
+    public Sell(String name, String details, String id, double rate, double area, double quantity, double price) {
+        this.name = name;
+        this.details = details;
+        this.id = id;
+        this.rate = rate;
+        this.area = area;
+        this.quantity = quantity;
+        this.price = price;
     }
 
     public String getName() {
@@ -62,5 +72,13 @@ public class Sell {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

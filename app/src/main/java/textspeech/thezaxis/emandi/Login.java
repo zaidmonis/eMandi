@@ -134,6 +134,9 @@ public class Login extends AppCompatActivity {
                         if (user.getUserName().equals(Username.getText().toString()) && user.getKey().equals(Password.getText().toString())){
                             userFound = true;
                             Toast.makeText(Login.this, "Login Successfully done!", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(Login.this, HomeActivity.class);
+                            intent.putExtra("id", user.getId());
+                            Toast.makeText(Login.this, ""+user.getId(), Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(Login.this, HomeActivity.class));
                             userFound = true;
                             finish();
