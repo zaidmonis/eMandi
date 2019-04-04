@@ -1,7 +1,10 @@
 package textspeech.thezaxis.emandi;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
@@ -16,17 +19,27 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, BottomNavigationView.OnNavigationItemSelectedListener {
 
 
     BottomNavigationView bottomNavigationView;
+    String id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        //getSupportActionBar().hide();
+        //this.getActionBar().hide();
+        id = getIntent().getStringExtra("id");
+        Toast.makeText(this, ""+id, Toast.LENGTH_SHORT).show();
+        if (id!=null){
+            PreferenceManager.getDefaultSharedPreferences(this).edit().putString("id", id).apply();
+        }
+        id = PreferenceManager.getDefaultSharedPreferences(this).getString("id", "error");
 
 
 
@@ -45,15 +58,19 @@ public class HomeActivity extends AppCompatActivity
                         fragment = new BuyFragment();
                         break;
 
-                    case R.id.navigation_sell:
+                    case R.id.navigation_sell:{
+                        Bundle bundle = new Bundle();
+                        bundle.putString("id", id);
                         fragment = new SellFragment();
+                        fragment.setArguments(bundle);
                         break;
+                    }
+
                 }
 
                 return loadFragment(fragment);
             }
         });
-
 
 
 
@@ -86,6 +103,7 @@ public class HomeActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
+            System.exit(0);
             super.onBackPressed();
         }
     }
@@ -120,6 +138,7 @@ public class HomeActivity extends AppCompatActivity
 
         if (id == R.id.nav_camera) {
             // Handle the camera action
+            startActivity(new Intent(HomeActivity.this, VideoList.class));
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {

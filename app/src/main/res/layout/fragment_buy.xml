@@ -6,9 +6,11 @@
     tools:context=".BuyFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/title_buy" />
+        android:id="@+id/listView">
+
+    </ListView>
 
 </FrameLayout>

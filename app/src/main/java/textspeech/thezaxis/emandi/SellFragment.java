@@ -37,7 +37,7 @@ public class SellFragment extends Fragment {
 
     private EditText nameText, areaText, rateText, quantityText, priceText, detailsText;
     private Button submitButton;
-
+    private String id;
     private OnFragmentInteractionListener mListener;
 
     public SellFragment() {
@@ -84,12 +84,14 @@ public class SellFragment extends Fragment {
         priceText = view.findViewById(R.id.priceText);
         detailsText = view.findViewById(R.id.detailsText);
         submitButton = view.findViewById(R.id.submitButton);
+        id = getArguments().getString("id");
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String id = mDatabaseReference.push().getKey();
-                Sell sell = new Sell(nameText.getText().toString(), detailsText.getText().toString(), Double.valueOf(rateText.getText().toString()), Double.valueOf(areaText.getText().toString()), Double.valueOf(quantityText.getText().toString()), Double.valueOf(priceText.getText().toString()));
-                mDatabaseReference.child(id).setValue(sell);
+                String id2 = mDatabaseReference.push().getKey();
+                //Sell sell = new Sell(nameText.getText().toString(), detailsText.getText().toString(), Double.valueOf(rateText.getText().toString()), Double.valueOf(areaText.getText().toString()), Double.valueOf(quantityText.getText().toString()), Double.valueOf(priceText.getText().toString()));
+                Sell sell = new Sell(nameText.getText().toString(), detailsText.getText().toString(), id, Double.valueOf(rateText.getText().toString()), Double.valueOf(areaText.getText().toString()), Double.valueOf(quantityText.getText().toString()), Double.valueOf(priceText.getText().toString()));
+                mDatabaseReference.child(id2).setValue(sell);
                 Toast.makeText(getActivity(), "Successfully Sold", Toast.LENGTH_SHORT).show();
             }
         });

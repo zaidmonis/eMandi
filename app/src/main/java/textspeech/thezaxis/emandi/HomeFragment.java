@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -53,7 +54,7 @@ public class HomeFragment extends Fragment {
     private Button sampleButton;
     private TextView sampleText;
     private RequestQueue mQueue;
-    private GridView mandiGridView;
+    private ListView mandiGridView;
     List<Product> productList;
 
     private OnFragmentInteractionListener mListener;
@@ -99,7 +100,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void jsonParse() {
-        String url = "https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070?api-key=579b464db66ec23bdd000001f0af90f3616349b86afb5082c578bf37&format=json&filters[state]=Gujarat";
+        String url = "https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070?api-key=579b464db66ec23bdd000001f0af90f3616349b86afb5082c578bf37&format=json&filters[state]=Gujarat&limit=1000";
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
                     @Override
@@ -166,16 +167,19 @@ public class HomeFragment extends Fragment {
         sampleButton = view.findViewById(R.id.sample_button);
         sampleButton.setVisibility(View.VISIBLE);
         mandiGridView = view.findViewById(R.id.mandi_grid_view);
-        mandiGridView.setNumColumns(1);
+        //mandiGridView.setNumColumns(1);
         productList = new ArrayList<>();
         mQueue = Volley.newRequestQueue(getActivity());
+        sampleButton.setVisibility(View.GONE);
+        sampleText.setVisibility(View.GONE);
+        jsonParse();
         sampleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sampleButton.setVisibility(View.GONE);
+                /*sampleButton.setVisibility(View.GONE);
                 sampleText.setVisibility(View.GONE);
-                //jsonParse();
-                startActivity(new Intent(getActivity(), WeatherActivity.class));
+                jsonParse();*/
+                //startActivity(new Intent(getActivity(), WeatherActivity.class));
             }
         });
 

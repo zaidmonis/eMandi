@@ -2,6 +2,7 @@ package textspeech.thezaxis.emandi;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -65,9 +66,16 @@ public class Signup extends AppCompatActivity {
                             public void onClick(View v) {
                                 if (Password.getText().toString().equals(ConfirmPassword.getText().toString())){
                                     String id = mDatabaseReference.push().getKey();
-                                    User user = new User(AadharCard.getText().toString(), ConfirmPassword.getText().toString());
+                                    //User user = new User(AadharCard.getText().toString(), ConfirmPassword.getText().toString());
+                                    User user = new User(AadharCard.getText().toString(), ConfirmPassword.getText().toString(), id);
                                     mDatabaseReference.child(id).setValue(user);
-
+                                    Intent intent;
+                                    intent = new Intent(Signup.this, RegistrationActivity.class);
+                                    intent.putExtra("id", id);
+                                    startActivity(intent);
+                                    /*Login login = new Login();
+                                    login.finish();*/
+                                    finish();
                                     Toast.makeText(Signup.this, "Success", Toast.LENGTH_SHORT).show();
                                 }
                                 else{

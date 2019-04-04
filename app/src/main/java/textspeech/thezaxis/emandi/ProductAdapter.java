@@ -45,20 +45,20 @@ public class ProductAdapter extends BaseAdapter {
         final Holder holder = new Holder();
         View rowView;
         rowView = inflater.inflate(R.layout.mandi_item, null);
-        holder.stateTV = rowView.findViewById(R.id.state_tv);
+
         holder.districtTV = rowView.findViewById(R.id.district_tv);
-        holder.marketTv = rowView.findViewById(R.id.market_tv);
+        holder.priceRange = rowView.findViewById(R.id.min_max_price);
+        holder.varietyTV = rowView.findViewById(R.id.variety_tv);
         holder.commodityTV = rowView.findViewById(R.id.commodity_tv);
         holder.modalPriceTV = rowView.findViewById(R.id.modal_price_tv);
-        holder.arrivalDateTV = rowView.findViewById(R.id.arrival_date_tv);
+
         Product product = productList.get(position);
 
-        holder.stateTV.setText(product.getState());
-        holder.districtTV.setText(product.getDistrict());
-        holder.marketTv.setText(product.getMarket());
+        holder.districtTV.setText(product.getMarket() + ", " +product.getDistrict());
         holder.commodityTV.setText(product.getCommodity());
-        holder.modalPriceTV.setText(product.getModalPrice());
-        holder.arrivalDateTV.setText(product.getArrival_Date());
+        holder.modalPriceTV.setText("₹"+product.getModalPrice());
+        holder.priceRange.setText("₹"+product.getMinPrice() + " - ₹"+product.getMaxPrice());
+        holder.varietyTV.setText(product.getVariety());
 
 
 
@@ -69,6 +69,6 @@ public class ProductAdapter extends BaseAdapter {
     }
     public class Holder {
         RelativeLayout itemLay;
-        TextView stateTV, districtTV, marketTv, commodityTV, modalPriceTV, arrivalDateTV;
+        TextView priceRange, varietyTV, districtTV, commodityTV, modalPriceTV;
     }
 }
