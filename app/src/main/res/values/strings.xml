@@ -1,5 +1,5 @@
 <resources>
-    <string name="username">Username</string>
+    <string name="username">Aadhar number</string>
     <string name="app_name">eMandi</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
@@ -17,4 +17,5 @@
     <string name="open">open</string>
     <string name="close">close</string>
     <string name="api_key">579b464db66ec23bdd000001f0af90f3616349b86afb5082c578bf37</string>
+    <string name="login_success">Login Successful</string>
 </resources>

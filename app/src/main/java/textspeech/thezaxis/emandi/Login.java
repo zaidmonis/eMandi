@@ -1,11 +1,18 @@
 package textspeech.thezaxis.emandi;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.annotation.NonNull;
+import android.support.design.widget.TextInputEditText;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,6 +31,8 @@ public class Login extends AppCompatActivity {
 
     private EditText Username;
     private EditText Password;
+    //private TextInputEditText Password;
+    private CheckBox checkBoxShowPassword;
     private TextView signup;
     private TextView Sign;
     private Button login;
@@ -38,25 +47,47 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Username=(EditText)findViewById(R.id.etUsername);
-        Password = (EditText)findViewById(R.id.etPassword);
+        Username= findViewById(R.id.etUsername);
+        Password = findViewById(R.id.etPassword);
         login = (Button)findViewById(R.id.btnlogin);
         signup=(TextView)findViewById(R.id.txtsignup);
         login_with_number = (TextView) findViewById(R.id.txtlogin_with_number);
+        checkBoxShowPassword = findViewById(R.id.show_password_check_box);
         mDatabaseReference = FirebaseDatabase.getInstance().getReference("Users");
         userList = new ArrayList<>();
+        checkBoxShowPassword.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (checkBoxShowPassword.isChecked()){
+                    Password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                }
+                else{
+                    Password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                }
+            }
+        });
 
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                if(Username.getText().length()!=0 && Password.getText().length()!=0){
-                   if (checkUser()){
-                       Toast.makeText(Login.this, "Login Success", Toast.LENGTH_SHORT).show();
+                   /*if (checkUser()){
+                       //Toast.makeText(Login.this, "Login Success", Toast.LENGTH_SHORT).show();
                    }
                    else{
                        Toast.makeText(Login.this, "Login Invalid", Toast.LENGTH_SHORT).show();
-                   }
+                   }*/
+                   checkUser();
+                   new Handler().postDelayed(new Runnable() {
+                       @Override
+                       public void run() {
+                           if (!userFound){
+                               Toast.makeText(Login.this, "Invalid Credentials!", Toast.LENGTH_SHORT).show();
+                           }
+                       }
+                   }, 5000);
+
                }
                else{
                    Toast.makeText(Login.this, "Invalid values!", Toast.LENGTH_SHORT).show();
@@ -88,7 +119,7 @@ public class Login extends AppCompatActivity {
     }
 
 
-    private boolean checkUser(){
+    private void checkUser(){
         userFound = false;
 
         mDatabaseReference= FirebaseDatabase.getInstance().getReference("Users");
@@ -99,10 +130,18 @@ public class Login extends AppCompatActivity {
                 for (DataSnapshot userSnapshot : dataSnapshot.getChildren()){
                     try{
                         User user = userSnapshot.getValue(User.class);
-                        Toast.makeText(Login.this, user.getKey(), Toast.LENGTH_SHORT).show();
+
                         if (user.getUserName().equals(Username.getText().toString()) && user.getKey().equals(Password.getText().toString())){
                             userFound = true;
                             Toast.makeText(Login.this, "Login Successfully done!", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(Login.this, HomeActivity.class));
+                            userFound = true;
+                            finish();
+                            break;
+                        }
+                        else{
+                            userFound = false;
+                            /*Toast.makeText(Login.this, "Invalid credentials", Toast.LENGTH_SHORT).show();*/
                         }
                     }catch (Exception e){
                         Toast.makeText(Login.this, "" +e, Toast.LENGTH_SHORT).show();
@@ -113,10 +152,9 @@ public class Login extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                Toast.makeText(Login.this, ""+databaseError.toString(), Toast.LENGTH_SHORT).show();
             }
         });
-        return userFound;
     }
 
 

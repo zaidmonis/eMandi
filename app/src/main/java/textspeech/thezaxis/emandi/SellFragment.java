@@ -7,6 +7,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 /**
@@ -26,6 +32,11 @@ public class SellFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private DatabaseReference mDatabaseReference;
+
+    private EditText nameText, areaText, rateText, quantityText, priceText, detailsText;
+    private Button submitButton;
 
     private OnFragmentInteractionListener mListener;
 
@@ -54,6 +65,7 @@ public class SellFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference("Selling");
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -64,7 +76,31 @@ public class SellFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sell, container, false);
+        View view = inflater.inflate(R.layout.fragment_sell, container, false);
+        nameText = view.findViewById(R.id.nameText);
+        areaText = view.findViewById(R.id.areaText);
+        rateText = view.findViewById(R.id.rateText);
+        quantityText = view.findViewById(R.id.quantityText);
+        priceText = view.findViewById(R.id.priceText);
+        detailsText = view.findViewById(R.id.detailsText);
+        submitButton = view.findViewById(R.id.submitButton);
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String id = mDatabaseReference.push().getKey();
+                Sell sell = new Sell(nameText.getText().toString(), detailsText.getText().toString(), Double.valueOf(rateText.getText().toString()), Double.valueOf(areaText.getText().toString()), Double.valueOf(quantityText.getText().toString()), Double.valueOf(priceText.getText().toString()));
+                mDatabaseReference.child(id).setValue(sell);
+                Toast.makeText(getActivity(), "Successfully Sold", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
+
+
+
+
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

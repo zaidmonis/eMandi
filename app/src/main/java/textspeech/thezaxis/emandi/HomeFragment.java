@@ -1,6 +1,7 @@
 package textspeech.thezaxis.emandi;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -98,7 +99,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void jsonParse() {
-        String url = "https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070?api-key=579b464db66ec23bdd000001f0af90f3616349b86afb5082c578bf37&format=json&filters[district]=Meerut";
+        String url = "https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070?api-key=579b464db66ec23bdd000001f0af90f3616349b86afb5082c578bf37&format=json&filters[state]=Gujarat";
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
                     @Override
@@ -173,21 +174,20 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 sampleButton.setVisibility(View.GONE);
                 sampleText.setVisibility(View.GONE);
-                jsonParse();
+                //jsonParse();
+                startActivity(new Intent(getActivity(), WeatherActivity.class));
             }
         });
 
 
         return view;
     }
-
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
         }
     }
-
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);

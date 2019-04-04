@@ -1,14 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SellFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <EditText
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/title_sell" />
+        android:layout_height="wrap_content"
+        android:id="@+id/nameText"
+        android:layout_margin="10dp"
+        android:hint="Crop Name"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nameText"
+        android:layout_margin="10dp"
+        android:hint="Crop Area"
+        android:id="@+id/areaText"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/areaText"
+        android:layout_margin="10dp"
+        android:id="@+id/rateText"
+        android:hint="Rate per Quintal"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/quantityText"
+        android:hint="Estimated Quantity"
+        android:layout_below="@id/rateText"
+        android:layout_margin="10dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/priceText"
+        android:layout_margin="10dp"
+        android:layout_below="@id/quantityText"
+        android:hint="Total Price"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/detailsText"
+        android:layout_margin="10dp"
+        android:layout_below="@id/priceText"
+        android:hint="Other Details"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/submitButton"
+        android:layout_below="@id/detailsText"
+        android:text="Submit"/>
 
-</FrameLayout>
+</RelativeLayout>

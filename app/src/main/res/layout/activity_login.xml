@@ -23,14 +23,16 @@
             android:drawablePadding="12dp"
             android:ems="10"
             android:layout_margin="5dp"
+            android:inputType="number"
             android:hint="@string/username"
+            android:drawableTint="#636363"
             android:maxLength="12"
             android:padding="16dp"
             android:maxLines="1"
             android:layout_marginRight="16dp"
             android:layout_marginLeft="16dp"
-            android:textColorHint="#ffffff" />
-
+            android:textColorHint="#ffffff" >
+        </EditText>
         <EditText
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
@@ -38,16 +40,23 @@
             android:drawablePadding="12dp"
             android:layout_margin="5dp"
             android:layout_marginTop="12dp"
+            android:padding="16dp"
             android:background="@drawable/border_rectangular_white"
             android:drawableLeft="@drawable/ic_action_pass"
             android:ems="10"
             android:hint="@string/password"
             android:inputType="textPassword"
             android:maxLines="1"
-            android:padding="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginLeft="16dp"
             android:textColorHint="#fff" />
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Show password"
+            android:id="@+id/show_password_check_box"
+            android:textColor="#ffffff"/>
+
 
         <CheckBox
             android:layout_width="wrap_content"

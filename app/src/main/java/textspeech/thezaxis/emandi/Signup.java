@@ -38,13 +38,11 @@ public class Signup extends AppCompatActivity {
             public void onClick(View v) {
 
                 if(AadharCard.getText().length()==12 || PhoneNumber.getText().length()==10) {
-                    ViewGroup viewGroup = findViewById(android.R.id.content);
                     AlertDialog.Builder mBuilder = new AlertDialog.Builder(Signup.this);
                     View mview1 = getLayoutInflater().inflate(R.layout.dialog_aadhar, null);
                     final EditText Password = (EditText) mview1.findViewById(R.id.etpassword);
                     final EditText ConfirmPassword = (EditText) mview1.findViewById(R.id.etconfirmpassword);
                     View mview2 = LayoutInflater.from(Signup.this).inflate(R.layout.dialog_number, null);
-                    final EditText otp = (EditText) mview2.findViewById(R.id.etotp);
                     AlertDialog dialog;
                     mBuilder.setCancelable(false)
                             .setPositiveButton("Submit",null)
